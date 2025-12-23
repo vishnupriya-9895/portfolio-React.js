@@ -1,0 +1,440 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Science Gothic", sans-serif;
+}
+body {
+  background-color: black;
+  color: aliceblue;
+}
+.hero {
+  position: relative;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Antigravity background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+
+.hero-content {
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h1 span {
+  background: linear-gradient(90deg, #ff9ffc, #9f7bff, #ff9ffc);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient 6s linear infinite;
+}
+
+.hero-content h2 {
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.75;
+  margin-bottom: 2rem;
+}
+
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-buttons a,
+.hero-buttons button {
+  padding: 0.7rem 1.8rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.hero-buttons .primary {
+  background: linear-gradient(90deg, #ff9ffc, #9f7bff);
+  color: black;
+  border: none;
+}
+
+.hero-buttons .primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 159, 252, 0.5);
+}
+
+
+.hero-buttons .secondary {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.hero-buttons .secondary:hover {
+  background: white;
+  color: black;
+}
+
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.image-box {
+  width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  padding: 6px;
+  background: linear-gradient(135deg, #ff9ffc, #9f7bff);
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+}
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  background-color: #1e1e1e;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+.download-btn {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #ff9ffc, #9f7bff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.download-btn:hover {
+  background: linear-gradient(90deg, #ff9ffc, #9f7bff);
+}
+/*  */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.rainbow {
+  position: relative;
+  z-index: 0;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #399953;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#399953, #399953),
+      linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
+      linear-gradient(#377af5, #377af5);
+    animation: rotate 4s linear infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+    animation: opacityChange 3s infinite alternate;
+  }
+}
+
+@keyframes opacityChange {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.animated-role {
+  font-size: 1.3rem;
+  opacity: 0.85;
+  min-height: 1.5rem; 
+  display: inline-block;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #ff9ffc;
+  width: 2px;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* above home */
+/* skil
+ */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.skill-card {
+  width: 220px;
+  height: 260px;
+  background: #0f0f0f;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+}
+
+.skill-box {
+  text-align: center;
+}
+
+.percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-left: 30px;
+  animation: softPulse 3s infinite ease-in-out;
+}
+
+.progress-svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
+}
+
+
+.bg-circle {
+  fill: none;
+  stroke: #222;
+  stroke-width: 8;
+}
+
+.progress-circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke: linear-gradient(90deg, #ff9ffc, #9f7bff);
+  stroke: #9f7bff;
+  stroke-dasharray: 440;
+  animation: load 1.5s ease forwards;
+}
+
+
+.p90 .progress-circle {
+  stroke-dashoffset: 44;
+}
+.p85 .progress-circle {
+  stroke-dashoffset: 66;
+}
+.p80 .progress-circle {
+  stroke-dashoffset: 88;
+}
+.p75 .progress-circle {
+  stroke-dashoffset: 110;
+}
+.p70 .progress-circle {
+  stroke-dashoffset: 132;
+}
+.p65 .progress-circle {
+  stroke-dashoffset: 154;
+}
+
+
+.number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+.number span {
+  font-size: 1rem;
+}
+
+
+.skill-text {
+  margin-top: 15px;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes load {
+  from {
+    stroke-dashoffset: 440;
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
