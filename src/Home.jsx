@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AntigravitySection from "./AntigravitySection";
 import profileImg from "./assets/new.png";
 import 'animate.css';
-import resume from "./assets/Vishnupriya.pdf";
+
 
 
 const roles = ["MERN Stack Developer", "Web Developer", "Frontend Developer", "Backend Developer"];
@@ -51,9 +51,10 @@ const Home = () => {
           </p>
 
           <div className="hero-buttons">
-     <a href={resume} className="primary" download>
+    <a href="/Vishnupriya.pdf" className="primary" download>
   Download CV
 </a>
+
 
 
              
@@ -80,9 +81,10 @@ const Home = () => {
               </div>
 
               <div className="flip-card-back">
-               <a href={resume} download>
+              <a href="/Vishnupriya.pdf" download>
   <button className="download-btn">Download CV</button>
 </a>
+
               </div>
             </div>
           </div>
